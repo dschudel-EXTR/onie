@@ -39,7 +39,7 @@ index 269fbda..6031aee 100644
 +	e->addr = 0x70;
 +	// set I2C MUX to default channel
 +	if( ( r = ioctl(e->fd, I2C_SLAVE, e->addr)) < 0) {
-+		fprintf(stderr, "eeprom_close on Alpha platform: set MUX to default channel failed with error %d\n", r);
++		fprintf(stderr, "eeprom_close on EXTR platform: set MUX to default channel failed with error %d\n", r);
 +	} else {
 +		data = 0x0;
 +		i2c_write_1b(e, data);
