@@ -1,4 +1,4 @@
-# Extreme Networks X870
+# Extreme Networks X870-32c
 
 ONIE_ARCH ?= x86_64
 
