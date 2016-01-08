@@ -1,8 +1,8 @@
-# Alpha Networks SNH60A0-320F
+# Extreme Networks X870
 
 ONIE_ARCH ?= x86_64
 
-VENDOR_REV ?= 0
+VENDOR_REV ?= 1
 
 # Translate hardware revision to ONIE hardware revision
 ifeq ($(VENDOR_REV),0)
@@ -12,15 +12,15 @@ else
   $(error Unknown VENDOR_REV)
 endif
 
-# The VENDOR_VERSION string is appended to the overal ONIE version
+# The VENDOR_VERSION string is appended to the overall ONIE version
 # string.  HW vendors can use this to appended their own versioning
 # information to the base ONIE version string.
 VENDOR_VERSION = .0.1
 
 # Vendor ID -- IANA Private Enterprise Number:
 # http://www.iana.org/assignments/enterprise-numbers
-# Alpha Networks Inc.
-VENDOR_ID = 31874
+# Extreme Networks Inc.
+VENDOR_ID = 1916
 
 # Enable the i2ctools and the onie-syseeprom command for this platform
 I2CTOOLS_ENABLE = yes
