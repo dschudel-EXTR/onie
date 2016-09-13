@@ -1,10 +1,8 @@
-Support Broadcom 54616 phy in Intel IGB Ethernet Driver
-
 diff --git a/drivers/net/ethernet/intel/igb/e1000_82575.c b/drivers/net/ethernet/intel/igb/e1000_82575.c
-index ffdd020..a775254 100644
+index 051ea94..2a04baa 100644
 --- a/drivers/net/ethernet/intel/igb/e1000_82575.c
 +++ b/drivers/net/ethernet/intel/igb/e1000_82575.c
-@@ -217,6 +217,9 @@ static s32 igb_init_phy_params_82575(struct e1000_hw *hw)
+@@ -286,6 +286,9 @@ static s32 igb_init_phy_params_82575(struct e1000_hw *hw)
  		phy->ops.set_d3_lplu_state = igb_set_d3_lplu_state_82580;
  		phy->ops.force_speed_duplex = igb_phy_force_speed_duplex_m88;
  		break;
@@ -14,7 +12,7 @@ index ffdd020..a775254 100644
  	default:
  		ret_val = -E1000_ERR_PHY;
  		goto out;
-@@ -1464,6 +1467,7 @@ static s32 igb_setup_copper_link_82575(struct e1000_hw *hw)
+@@ -1550,6 +1553,7 @@ static s32 igb_setup_copper_link_82575(struct e1000_hw *hw)
  	case e1000_i350:
  	case e1000_i210:
  	case e1000_i211:
@@ -22,7 +20,7 @@ index ffdd020..a775254 100644
  		phpm_reg = rd32(E1000_82580_PHY_POWER_MGMT);
  		phpm_reg &= ~E1000_82580_PM_GO_LINKD;
  		wr32(E1000_82580_PHY_POWER_MGMT, phpm_reg);
-@@ -1507,6 +1511,8 @@ static s32 igb_setup_copper_link_82575(struct e1000_hw *hw)
+@@ -1593,6 +1597,8 @@ static s32 igb_setup_copper_link_82575(struct e1000_hw *hw)
  	case e1000_phy_82580:
  		ret_val = igb_copper_link_setup_82580(hw);
  		break;
@@ -32,10 +30,10 @@ index ffdd020..a775254 100644
  		ret_val = -E1000_ERR_PHY;
  		break;
 diff --git a/drivers/net/ethernet/intel/igb/e1000_defines.h b/drivers/net/ethernet/intel/igb/e1000_defines.h
-index 7459648..7a0cc00 100644
+index 217f813..5322fbf 100644
 --- a/drivers/net/ethernet/intel/igb/e1000_defines.h
 +++ b/drivers/net/ethernet/intel/igb/e1000_defines.h
-@@ -786,6 +786,7 @@
+@@ -860,6 +860,7 @@
  #define M88_VENDOR           0x0141
  #define I210_I_PHY_ID        0x01410C00
  #define M88E1543_E_PHY_ID    0x01410EA0
@@ -44,10 +42,10 @@ index 7459648..7a0cc00 100644
  /* M88E1000 Specific Registers */
  #define M88E1000_PHY_SPEC_CTRL     0x10  /* PHY Specific Control Register */
 diff --git a/drivers/net/ethernet/intel/igb/e1000_hw.h b/drivers/net/ethernet/intel/igb/e1000_hw.h
-index 2e166b2..32b7c2f 100644
+index 2003b37..d82c96b 100644
 --- a/drivers/net/ethernet/intel/igb/e1000_hw.h
 +++ b/drivers/net/ethernet/intel/igb/e1000_hw.h
-@@ -133,6 +133,7 @@ enum e1000_phy_type {
+@@ -128,6 +128,7 @@ enum e1000_phy_type {
  	e1000_phy_ife,
  	e1000_phy_82580,
  	e1000_phy_i210,
@@ -56,10 +54,10 @@ index 2e166b2..32b7c2f 100644
  
  enum e1000_bus_type {
 diff --git a/drivers/net/ethernet/intel/igb/igb_main.c b/drivers/net/ethernet/intel/igb/igb_main.c
-index 1675d7d..ad0f728 100644
+index e0f3664..013c1f1 100644
 --- a/drivers/net/ethernet/intel/igb/igb_main.c
 +++ b/drivers/net/ethernet/intel/igb/igb_main.c
-@@ -112,6 +112,7 @@ static DEFINE_PCI_DEVICE_TABLE(igb_pci_tbl) = {
+@@ -108,6 +108,7 @@ static const struct pci_device_id igb_pci_tbl[] = {
  	{ PCI_VDEVICE(INTEL, E1000_DEV_ID_82575EB_COPPER), board_82575 },
  	{ PCI_VDEVICE(INTEL, E1000_DEV_ID_82575EB_FIBER_SERDES), board_82575 },
  	{ PCI_VDEVICE(INTEL, E1000_DEV_ID_82575GB_QUAD_COPPER), board_82575 },
@@ -67,11 +65,3 @@ index 1675d7d..ad0f728 100644
  	/* required last entry */
  	{0, }
  };
-@@ -1585,6 +1586,7 @@ void igb_power_up_link(struct igb_adapter *adapter)
- 		igb_power_up_phy_copper(&adapter->hw);
- 	else
- 		igb_power_up_serdes_link_82575(&adapter->hw);
-+	igb_setup_link(&adapter->hw);
- }
- 
- /**
