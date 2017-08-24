@@ -1,12 +1,12 @@
-# Extreme Networks X870
+# Extreme Networks X670G3
 
 ONIE_ARCH ?= x86_64
 
-VENDOR_REV ?= 1
+VENDOR_REV ?= 0
 
 # Translate hardware revision to ONIE hardware revision
-ifeq ($(VENDOR_REV),1)
-  MACHINE_REV = 1
+ifeq ($(VENDOR_REV),0)
+  MACHINE_REV = 0
 else
   $(warning Unknown VENDOR_REV '$(VENDOR_REV)' for MACHINE '$(MACHINE)')
   $(error Unknown VENDOR_REV)
