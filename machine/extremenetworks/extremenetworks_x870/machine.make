@@ -1,6 +1,7 @@
 # Extreme Networks X870
 
 ONIE_ARCH ?= x86_64
+SWITCH_ASIC_VENDOR = bcm
 
 VENDOR_REV ?= 1
 
