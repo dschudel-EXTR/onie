@@ -1,4 +1,4 @@
-# Extreme Networks X590
+# Extreme Networks ES4100
 
 ONIE_ARCH ?= x86_64
 SWITCH_ASIC_VENDOR = bcm
