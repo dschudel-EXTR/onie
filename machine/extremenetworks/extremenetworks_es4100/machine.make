@@ -1,4 +1,5 @@
-# Extreme Networks ES4100
+# Extreme Networks ES4100 Series
+# CPU Module: Intel Denvertion-NS
 
 ONIE_ARCH ?= x86_64
 SWITCH_ASIC_VENDOR = bcm
@@ -13,43 +14,40 @@ else
   $(error Unknown VENDOR_REV)
 endif
 
-# The VENDOR_VERSION string is appended to the overall ONIE version
+# The VENDOR_VERSION string is appended to the overal ONIE version
 # string.  HW vendors can use this to appended their own versioning
 # information to the base ONIE version string.
-VENDOR_VERSION = .0.1
+VENDOR_VERSION = .02
 
 # Vendor ID -- IANA Private Enterprise Number:
 # http://www.iana.org/assignments/enterprise-numbers
-# Extreme Networks Inc.
-VENDOR_ID = 1916
+# Open Compute Project IANA number
+VENDOR_ID = 22238
 
-# Enable the i2ctools and the onie-syseeprom command for this platform
+UEFI_ENABLE = yes
+###FIRMWARE_TYPE = uefi
+
+# Enable the i2ctools
 I2CTOOLS_ENABLE = yes
-I2CTOOLS_SYSEEPROM = yes
 
-# Console parameters
+EXTRA_CMDLINE_LINUX = earlycon=uart8250,io,0x3f8 acpi_osi="Linux"
+
+#
+# Console parameters can be defined here (default values are in
+# build-config/arch/x86_64.make).
+#
+CONSOLE_SPEED = 115200
 CONSOLE_DEV = 0
 
-# Enable UEFI support
-UEFI_ENABLE = yes
-#PXE_EFI64_ENABLE = yes
-#SYSLINUX_DEFAULT_MODE ?= rescue
-
 # Set Linux kernel version
-LINUX_VERSION		= 4.9
-LINUX_MINOR_VERSION	= 95
+LINUX_VERSION       = 4.9
+LINUX_MINOR_VERSION = 57
 
-BTRFS_PROGS_ENABLE = no
-EXTRA_CMDLINE_LINUX = verbose
-# Older GCC required for older 3.14.27 kernel
-#GCC_VERSION = 6.3.0
-
-# Specify uClibc version
-#UCLIBC_VERSION = 0.9.32.1
+# Older GCC required for older 3.2 kernel
+GCC_VERSION = 4.9.2
 
 #-------------------------------------------------------------------------------
 #
 # Local Variables:
 # mode: makefile-gmake
 # End:
-
