@@ -28,20 +28,28 @@ I2CTOOLS_ENABLE = yes
 I2CTOOLS_SYSEEPROM = yes
 
 # Console parameters
-CONSOLE_DEV = 1
+CONSOLE_DEV = 0
+
+# Enable UEFI support
+UEFI_ENABLE = yes
+#PXE_EFI64_ENABLE = yes
+#SYSLINUX_DEFAULT_MODE ?= rescue
+
+# Set Linux kernel version
+LINUX_VERSION		= 4.9
+LINUX_MINOR_VERSION	= 95
+
+BTRFS_PROGS_ENABLE = no
+EXTRA_CMDLINE_LINUX = verbose
+# Older GCC required for older 3.14.27 kernel
+#GCC_VERSION = 6.3.0
+
+# Specify uClibc version
+#UCLIBC_VERSION = 0.9.32.1
 
 #-------------------------------------------------------------------------------
 #
 # Local Variables:
 # mode: makefile-gmake
 # End:
-
-LINUX_VERSION		= 3.14
-LINUX_MINOR_VERSION	= 27
-
-# Older GCC required for older 3.14.27 kernel
-GCC_VERSION = 4.9.2
-
-# Specify uClibc version
-UCLIBC_VERSION = 0.9.32.1
 
