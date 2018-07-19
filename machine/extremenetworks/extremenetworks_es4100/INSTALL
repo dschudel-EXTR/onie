@@ -6,18 +6,18 @@ Cross-Compiling ONIE
 ====================
 
 To compile ONIE first change directories to ``build-config`` and then
-type ``"make MACHINEROOT=../machine/foxconn MACHINE=extremenetworks_es4100 all"``.  For example::
+type ``"make MACHINEROOT=../machine/extremenetworks MACHINE=extremenetworks_es4100 all"``.  For example::
 
   $ cd build-config
-  $ make MACHINEROOT=../machine/foxconn MACHINE=extremenetworks_es4100 all
+  $ make -j4 MACHINEROOT=../machine/extremenetworks MACHINE=extremenetworks_es4100 all
 
 When complete, the ONIE binaries are located in
 ``build/images``::
 
--rw-r--r-- 1 hawk hawk  6132992 Mar 21 16:21 x86_64-extremenetworks_es4100-r0.initrd
--rw-r--r-- 1 hawk hawk  3545776 Mar 21 16:21 x86_64-extremenetworks_es4100-r0.vmlinuz
--rw-r--r-- 1 hawk hawk 22020096 Mar 21 16:21 onie-recovery-x86_64-extremenetworks_es4100-r0.iso
--rw-r--r-- 1 hawk hawk  9729911 Mar 21 16:21 onie-updater-x86_64-extremenetworks_es4100-r0
+-rw-r--r-- 1 Mar 21 16:21 x86_64-extremenetworks_es4100-r0.initrd
+-rw-r--r-- 1 Mar 21 16:21 x86_64-extremenetworks_es4100-r0.vmlinuz
+-rw-r--r-- 1 Mar 21 16:21 onie-recovery-x86_64-extremenetworks_es4100-r0.iso
+-rw-r--r-- 1 Mar 21 16:21 onie-updater-x86_64-extremenetworks_es4100-r0
 
 extremenetworks_es4100-r0.vmlinuz                    -- This is the ONIE kernel image
 
@@ -66,7 +66,7 @@ To enable booting from USB in BIOS:
 
 1. Insert the USB stick
 
-2. Power on the Foxconn Switch
+2. Power on the Extreme Networks Switch
 
 3. Press ECS to get into the BIOS and set USB as boot device 
 

@@ -14,15 +14,15 @@ else
   $(error Unknown VENDOR_REV)
 endif
 
-# The VENDOR_VERSION string is appended to the overal ONIE version
+# The VENDOR_VERSION string is appended to the overall ONIE version
 # string.  HW vendors can use this to appended their own versioning
 # information to the base ONIE version string.
-VENDOR_VERSION = .02
+VENDOR_VERSION = .0.1
 
 # Vendor ID -- IANA Private Enterprise Number:
 # http://www.iana.org/assignments/enterprise-numbers
-# Open Compute Project IANA number
-VENDOR_ID = 22238
+# Extreme Networks Inc.
+VENDOR_ID = 1916
 
 UEFI_ENABLE = yes
 ###FIRMWARE_TYPE = uefi
@@ -41,7 +41,7 @@ CONSOLE_DEV = 0
 
 # Set Linux kernel version
 LINUX_VERSION       = 4.9
-LINUX_MINOR_VERSION = 57
+LINUX_MINOR_VERSION = 95
 
 # Older GCC required for older 3.2 kernel
 GCC_VERSION = 4.9.2
