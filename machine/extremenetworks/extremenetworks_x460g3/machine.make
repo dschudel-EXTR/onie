@@ -1,4 +1,4 @@
-# Extreme Networks ES4100 Series
+# Extreme Networks X460-G3 Series
 # CPU Module: Intel Denvertion-NS
 
 ONIE_ARCH ?= x86_64
