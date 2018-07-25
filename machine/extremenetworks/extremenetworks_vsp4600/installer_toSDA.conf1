@@ -1,8 +1,8 @@
-# Extreme Networks X460-G3 Series
+# Extreme Networks VSP4600 Series
 # CPU Module: Intel Denverton-NS
 
 
-description="Extreme Networks X460-G3"
+description="Extreme Networks VSP4600"
 
 # Default ONIE block device
 install_device_platform()

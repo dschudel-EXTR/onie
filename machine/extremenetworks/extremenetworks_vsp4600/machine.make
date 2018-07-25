@@ -1,4 +1,4 @@
-# Extreme Networks X460-G3 Series
+# Extreme Networks VSP4600 Series
 # CPU Module: Intel Denvertion-NS
 
 ONIE_ARCH ?= x86_64
