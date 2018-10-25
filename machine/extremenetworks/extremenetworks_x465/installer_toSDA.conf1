@@ -1,8 +1,8 @@
-# Extreme Networks X460-G3 Series
+# Extreme Networks X465 Series
 # CPU Module: Intel Denverton-NS
 
 
-description="Extreme Networks X460-G3"
+description="Extreme Networks X465"
 
 # Default ONIE block device
 install_device_platform()
@@ -16,16 +16,16 @@ install_device_platform()
     for _device in /sys/block/*/device; do  
 
         # Intel Broadwell-DE SATA Controller Registers (D31:F2)
-        # Intel Denverton-NS PCI Controller 1 Registers (D28:F0)
-        if echo $(readlink -f $_device)|egrep -q "pci0000:00\/0000:00:1c.0"; then
+        # Intel Denverton-NS SATA Controller 1 Registers (D20:F0)
+        if echo $(readlink -f $_device)|egrep -q "pci0000:00\/0000:00:14.0"; then
             _disk=`echo $_device | cut -f4 -d/`
             echo /dev/$_disk
             return 0
         fi  
     done
 
-    # nothing found, just return /dev/mmcblk0
-    echo /dev/mmcblk0
+    # nothing found, just return /dev/sda
+    echo /dev/sda
     return 1
 }
 
