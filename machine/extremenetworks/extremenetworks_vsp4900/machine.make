@@ -1,4 +1,4 @@
-# Extreme Networks X465 Series
+# Extreme Networks VSP4900 Series
 # CPU Module: Intel Denvertion-NS
 
 ONIE_ARCH ?= x86_64

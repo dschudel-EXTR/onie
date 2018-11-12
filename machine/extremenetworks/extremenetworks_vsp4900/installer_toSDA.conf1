@@ -1,8 +1,8 @@
-# Extreme Networks X465 Series
+# Extreme Networks VSP4900 Series
 # CPU Module: Intel Denverton-NS
 
 
-description="Extreme Networks X465"
+description="Extreme Networks VSP4900"
 
 # Default ONIE block device
 install_device_platform()
